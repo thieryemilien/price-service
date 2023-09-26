@@ -1,0 +1,5 @@
+Example of input parameter:
+
+http://localhost:8001/api/v1/price/get-price?appDate=2020-06-15 10:00 AM&productId=35455&brandId=1
+
+
