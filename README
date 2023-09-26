@@ -2,4 +2,36 @@ Example of input parameter:
 
 http://localhost:8001/api/v1/price/get-price?appDate=2020-06-15 10:00 AM&productId=35455&brandId=1
 
+I have designed the service under the hexagonal architecture y DDD
+
+Below I describe the architecture
+The hexagonal architecture, or ports and adapters architecture, is an architectural pattern used in software design. 
+It aims at creating loosely coupled application components that can be easily connected to their software environment by means of ports and adapters. 
+This makes components exchangeable at any level and facilitates test automation.
+
+The business logic interacts with other components through ports and adapters.
+
+The hexagonal architecture is based on three principles and techniques:
+
+Explicitly separate Application, Domain, and Infrastructure
+Dependencies are going from Application and Infrastructure to the Domain
+We isolate the boundaries by using Ports and Adapters
+
+Note: A port in Java is an interface. An adapter is one implementation of that interface.
+
+The domain layer represents the inside of the application and provides ports to interact with application use cases (business logic).
+
+This is the part that we want to isolate from both left and right sides. It contains all the code that concerns and implements business logic (use cases).
+
+Application Layer:
+The application layer provides different adapters for outside entities to interact with the domain through the port.
+
+This is the side through which the user or external programs will interact with the application. It contains the code that allows these interactions. 
+Typically, the user interface code, your HTTP routes for an API, your JSON serializations to programs that consume your application are here.
+
+Infrastructure Layer:
+Provide adapters and server-side logic to interact with the application from the right side. 
+Server-side entities, such as a database or other drivers, use these adapters to interact with the domain.
+
+It contains essential infrastructure details such as the code that interacts with your database, makes calls to the file system, or code that handles HTTP calls to other applications on which you depend for example.
 
